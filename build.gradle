@@ -1,12 +1,13 @@
 apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'eclipse'
-apply from: 'http://dl.bintray.com/content/shemnon/javafx-gradle/0.4.0/javafx.plugin'
+//apply from: 'http://dl.bintray.com/content/shemnon/javafx-gradle/0.4.0/javafx.plugin'
+apply plugin: 'application'
 
 group = 'com.github.hatimiti'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 1.9
+targetCompatibility = 1.9
 version = '1.0'
 
 repositories {
@@ -19,6 +20,7 @@ dependencies {
 
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
-javafx {
-    mainClass = 'com.github.hatimiti.scribbler.Main'
-}
+//javafx {
+//    mainClass = 'com.github.hatimiti.scribbler.Main'
+//}
+mainClassName = 'com.github.hatimiti.scribbler.Main'

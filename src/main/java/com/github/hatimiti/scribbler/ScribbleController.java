@@ -54,7 +54,7 @@ public class ScribbleController extends BaseController implements Initializable 
 	@Override
 	public void onLoadCompleted() {
 		stage.getScene().setFill(null);
-		stage.setAlwaysOnTop(true);
+		//stage.setAlwaysOnTop(true);
 		fullScreen();
 	}
 
