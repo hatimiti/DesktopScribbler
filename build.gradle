@@ -1,13 +1,13 @@
-apply plugin: 'java'
-apply plugin: 'maven'
-apply plugin: 'eclipse'
-//apply from: 'http://dl.bintray.com/content/shemnon/javafx-gradle/0.4.0/javafx.plugin'
-apply plugin: 'application'
+plugins {
+	id 'application'
+	id 'org.openjfx.javafxplugin' version '0.0.13'
+	id "org.beryx.jlink" version "2.25.0"
+}
 
 group = 'com.github.hatimiti'
 
-sourceCompatibility = 1.9
-targetCompatibility = 1.9
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 version = '1.0'
 
 repositories {
@@ -15,12 +15,17 @@ repositories {
 }
 
 dependencies {
-	testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+javafx {
+	version = "18.0.2"
+	modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+jlink {
+	options = [ '--strip-ebug', '--compress', '2', '--no-header-files', '--no-man-pages' ]
+	launcher {
+		name = 'scribber'
+	}
 }
 
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
-
-//javafx {
-//    mainClass = 'com.github.hatimiti.scribbler.Main'
-//}
-mainClassName = 'com.github.hatimiti.scribbler.Main'
+mainClassName = "com.github.hatimiti.scribbler.Main"
